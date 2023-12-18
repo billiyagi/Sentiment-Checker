@@ -8,14 +8,9 @@ class RequestModule
 {
 	public function get($path, $callback)
 	{
-		if ($path == $_SERVER['REQUEST_URI']) {
-			return call_user_func($callback);
-		}
-	}
-
-	public function post($path, $callback)
-	{
-		if ($path == $_SERVER['REQUEST_URI']) {
+		// jika path kosong, maka set path ke '/'
+		$_GET['page'] = (empty($_GET['page'])) ? '/' : $_GET['page'];
+		if ($path == $_GET['page']) {
 			return call_user_func($callback);
 		}
 	}

@@ -15,6 +15,11 @@ class PageController extends Controller
 
 	public function about()
 	{
-		return $this->view("pages/about");
+		$hello = [
+			'hello' => 'world',
+			'foo' => 'bar',
+			'another' => 'value'
+		];
+		return $this->view("pages/about", $hello);
 	}
 }
