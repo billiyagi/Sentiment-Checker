@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use app\modules\SensorsModule;
+
 class PageController extends Controller
 {
 	public function notFound()
@@ -13,13 +15,10 @@ class PageController extends Controller
 		return $this->view("pages/home");
 	}
 
-	public function about()
-	{
-		$hello = [
-			'hello' => 'world',
-			'foo' => 'bar',
-			'another' => 'value'
-		];
-		return $this->view("pages/about", $hello);
+	public function about(){
+
+		$sensorsModule = new SensorsModule();
+		return $this->view("pages/about", compact("sensorsModule"));
 	}
+	
 }

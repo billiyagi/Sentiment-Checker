@@ -1,5 +1,7 @@
 <?php
 require_once(__DIR__ . '/bootstrap.php');
+require_once('../app/modules/SensorsModule.php');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,6 @@ $request->get('/', function () {
 $request->get('about', function () {
 	return (new Controller\PageController)->about();
 });
+
+
+
