@@ -11,7 +11,8 @@ class RequestModule
 		// jika path kosong, maka set path ke '/'
 		$_GET['page'] = (empty($_GET['page'])) ? '/' : $_GET['page'];
 		if ($path == $_GET['page']) {
-			return call_user_func($callback);
+			$pageController = new \Controller\PageController;
+			return call_user_func($callback, $pageController);
 		}
 	}
 

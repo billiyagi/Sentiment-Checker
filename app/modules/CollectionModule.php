@@ -1,27 +1,28 @@
 <?php
 
+namespace App\Modules;
+
 class CollectionModule
 {
+	/** 
+	 * Pecah teks menjadi array
+	 * @return array
+	 * @param string $text
+	 * @param string $separator
+	 */
+	function textToArray($text, $separator) //contoh param "Hallo dunia!"
+	{
+		return explode($separator, $text);
+	}
 
-    // pecah text menjadi array
-    function textToArray($text) //contoh param "Hallo dunia!"
-    {
-        // Menggunakan fungsi explode()
-        $array_text = explode(" ", $text);
-
-        // Output: ['Halo', 'dunia!']
-
-        return $array_text;
-    }
-
-    // menggabungkan array kembali
-    function mergeArray($array) //contoh param ["Halo", "dunia", "!"]
-    {
-        // Menggabungkan array teks dengan spasi
-        $mergeText = implode(" ", $array);
-
-        // Output: "Halo dunia !"
-        return $mergeText;
-    }
-
+	/** 
+	 * Gabungkan array menjadi sebuah teks
+	 * @return string
+	 * @param array $array
+	 * @param string $separator
+	 */
+	function mergeArray($array, $separator)
+	{
+		return implode($separator, $array);
+	}
 }

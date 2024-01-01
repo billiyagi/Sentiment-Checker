@@ -3,6 +3,8 @@
 namespace Controller;
 
 use app\modules\SensorsModule;
+use App\Modules\PDOModule;
+use App\Models\BadWord;
 
 class PageController extends Controller
 {
@@ -15,10 +17,8 @@ class PageController extends Controller
 		return $this->view("pages/home");
 	}
 
-	public function about(){
-
-		$sensorsModule = new SensorsModule();
-		return $this->view("pages/about", compact("sensorsModule"));
+	public function about()
+	{
+		return $this->view("pages/about");
 	}
-	
 }
