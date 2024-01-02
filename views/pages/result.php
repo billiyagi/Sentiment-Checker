@@ -7,6 +7,7 @@
 				<i class="fa-solid fa-thumbs-down text-8xl "></i>
 
 			</div>
+			<p class="mt-10 mb-16">Teks yang anda berikan teindikasi mengandung perkataan Negatif</p>
 		<?php else : ?>
 			<div class="rounded-full border-2 border-green-500 inline-block p-10">
 
@@ -14,8 +15,8 @@
 			</div>
 		<?php endif; ?>
 
-		<p class="mt-10 mb-16">Teks yang anda berikan teindikasi mengandung perkataan Negatif</p>
-		<p class="text-4xl">
+
+		<p class="text-4xl mt-10">
 			<?php
 			$i = 0;
 			$arrayedText = explode(" ", $text);

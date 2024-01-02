@@ -12,6 +12,9 @@ namespace Controller;
 
 abstract class Controller
 {
+	/** 
+	 * Get view from views folder
+	 */
 	public function view($viewFile, $data = [])
 	{
 		extract($data);

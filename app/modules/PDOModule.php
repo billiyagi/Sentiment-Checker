@@ -22,7 +22,7 @@ class PDOModule
 	}
 
 	/** 
-	 * Mendapatkan koneksi original dari database
+	 * Get PDO Connection
 	 * @return PDOStatement
 	 */
 	public function getConnection()
@@ -31,7 +31,7 @@ class PDOModule
 	}
 
 	/** 
-	 * Insert data dari database
+	 * Insert data database
 	 * @return PDOStatement
 	 * @param array $querys
 	 * @example $querys = [$tableName, $whereCondition = 'id=?', $column = ['id', 'name']]
@@ -40,6 +40,7 @@ class PDOModule
 	{
 		$columns = count($querys['column']);
 
+		// Build column values from array column index
 		$values = '';
 		for ($i = 0; $i < $columns; $i++) {
 			if ($i == 0) {
@@ -49,11 +50,12 @@ class PDOModule
 			}
 		}
 
+		// Build Query
 		return $this->dbh->prepare("INSERT INTO " . $querys['table'] . " (" . implode(',', $querys['column']) . ") VALUES (" . $values . ")");
 	}
 
 	/** 
-	 * Mengupdate data dari database
+	 * Mengupdate data database
 	 * @return PDOStatement
 	 * @param array $querys
 	 * @example $querys = [$tableName, $whereCondition = 'id=?', $column = ['id', 'name']]
@@ -62,6 +64,7 @@ class PDOModule
 	{
 		$columns = count($querys['column']);
 
+		// Build column from array column index
 		$values = '';
 		for ($i = 0; $i < $columns; $i++) {
 			if ($i == 0) {
@@ -71,11 +74,12 @@ class PDOModule
 			}
 		}
 
+		// Build Query
 		return $this->dbh->prepare("UPDATE " . $querys['table'] . " SET " . $values . " WHERE " . $querys['where']);
 	}
 
 	/** 
-	 * Menghapus data dari database
+	 * Menghapus data database
 	 * @return PDOStatement
 	 * @param array $querys
 	 * @example $querys = [$tableName, $whereCondition = 'id=?']
@@ -87,7 +91,7 @@ class PDOModule
 
 
 	/** 
-	 * Mengambil data dari database
+	 * Mengambil data database
 	 * @return PDOStatement
 	 * @param array $querys
 	 * @param bool $whereCondition

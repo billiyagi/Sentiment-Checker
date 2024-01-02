@@ -6,7 +6,6 @@ interface ModelInterface
 {
 	public function get($id);
 	public function getAll();
-	public function where($condition);
 }
 
 
@@ -16,11 +15,16 @@ class Model implements ModelInterface
 {
 	protected $pdoModule, $table, $primaryKey;
 
+
 	public function __construct()
 	{
+		// Get PDO Connection from PDO Module
 		$this->pdoModule = new PDOModule($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 	}
 
+	/** 
+	 * Get data by id
+	 */
 	public function get($id)
 	{
 		$results = $this->pdoModule->selectQuery([
@@ -34,6 +38,9 @@ class Model implements ModelInterface
 		return $results->fetch(\PDO::FETCH_BOTH);
 	}
 
+	/** 
+	 * Get all data
+	 */
 	public function getAll()
 	{
 		$results = $this->pdoModule->selectQuery([
@@ -43,9 +50,5 @@ class Model implements ModelInterface
 		$results->execute();
 
 		return $results->fetchAll(\PDO::FETCH_OBJ);
-	}
-
-	public function where($condition)
-	{
 	}
 }

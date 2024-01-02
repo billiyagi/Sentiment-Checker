@@ -40,6 +40,10 @@ class BadWordModule
 		];
 	}
 
+	/**
+	 * Simpan semua data badword
+	 * @return array
+	 */
 	public function setBadWords(array $badWords)
 	{
 		return $this->badWords = $badWords;

@@ -18,25 +18,25 @@ use Controller\SentimentController;
 |
 */
 
+/** 
+ * Menampilkan halaman utama
+ */
 $request->get('/', function () {
 	return (new Controller\PageController)->index();
 });
 
+/** 
+ * Menampilkan halaman about
+ */
 $request->get('/about', function (PageController $pageController) {
 
 	return $pageController->about();
 });
 
 
-$request->get('/sentiment/check', function () {
-	// $sensorsModule = new SensorsModule();
-	// $text = "dasar lu anjing sialan ngentot bangsat lah bapak kau";
-	// $badWord = new TextMinimum();
-	// $badWord->spy($text, function ($result) use ($sensorsModule, $text) {
-	// 	if (!$result) {
-	// 		return $sensorsModule->sensorSentiment($text);
-	// 	}
-	// });
-
+/** 
+ * Menampilkan halaman results dari sentiment analysis
+ */
+$request->post('/sentiment/check', function () {
 	return (new Controller\SentimentController)->index();
 });
